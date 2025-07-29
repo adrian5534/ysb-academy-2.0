@@ -1,0 +1,247 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  background: #fff;
+  color: #222;
+}
+
+.homepage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 0 16px 0;
+}
+
+.logo {
+  font-weight: 700;
+  color: #7c3aed;
+  letter-spacing: 2px;
+  font-size: 18px;
+}
+
+.nav a {
+  margin-left: 32px;
+  text-decoration: none;
+  color: #222;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav a:hover {
+  color: #7c3aed;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #7c3aed 0%, #facc15 100%);
+  color: #fff;
+  border-radius: 16px;
+  padding: 64px 32px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 32px;
+}
+.cta {
+  background: #7c3aed;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cta:hover {
+  background: #a78bfa;
+}
+
+/* Core Programs */
+.programs {
+  margin-bottom: 64px;
+  text-align: center;
+}
+.programs h2 {
+  font-size: 1.7rem;
+  margin-bottom: 32px;
+}
+.program-list {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.program {
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 32px 24px;
+  width: 300px;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.05);
+}
+.program h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+.program p {
+  font-size: 0.98rem;
+  color: #555;
+}
+
+/* Testimonials */
+.testimonials {
+  margin-bottom: 64px;
+  text-align: center;
+}
+.testimonials h2 {
+  font-size: 1.5rem;
+  margin-bottom: 32px;
+}
+.testimonial-list {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.testimonial {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.07);
+  padding: 28px 20px;
+  width: 270px;
+  margin-bottom: 16px;
+}
+.testimonial p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 18px;
+}
+.author {
+  font-size: 0.95rem;
+  color: #7c3aed;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Pricing */
+.pricing {
+  margin-bottom: 64px;
+  text-align: center;
+}
+.pricing h2 {
+  font-size: 1.5rem;
+  margin-bottom: 32px;
+}
+.pricing-list {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.pricing-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.07);
+  padding: 32px 24px;
+  width: 270px;
+  margin-bottom: 16px;
+}
+.pricing-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+.price {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #222;
+}
+.price span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #888;
+  margin-left: 4px;
+}
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 24px;
+}
+.pricing-card li {
+  font-size: 0.98rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+.pricing-btn {
+  border: none;
+  border-radius: 24px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+.pricing-btn.yellow {
+  background: #facc15;
+  color: #222;
+}
+.pricing-btn.purple {
+  background: #7c3aed;
+  color: #fff;
+}
+.pricing-btn.yellow:hover {
+  background: #fde047;
+}
+.pricing-btn.purple:hover {
+  background: #a78bfa;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid #eee;
+  padding: 40px 0 24px 0;
+  text-align: center;
+  background: #fff;
+  margin-top: 48px;
+}
+.footer-logo {
+  font-weight: 700;
+  color: #7c3aed;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+.footer-links {
+  margin-bottom: 16px;
+}
+.footer-links a {
+  margin: 0 12px;
+  color: #888;
+  text-decoration: none;
+  font-size: 0.98rem;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: #7c3aed;
+}
+.footer-copy {
+  font-size: 0.95rem;
+  color: #aaa;
+}
