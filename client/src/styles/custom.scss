@@ -1,0 +1,61 @@
+@use "bootstrap/scss/bootstrap";
+
+// Custom color utility classes
+.bg-selective-yellow { background-color: hsl(57, 87%, 63%) !important; }
+.bg-selective-purple { background-color: hsl(278, 58%, 38%) !important; }
+.bg-selective-lightyellow { background-color: hsl(57, 87%, 85%) !important; }
+.bg-eerie-black-1 { background-color: hsl(0, 0%, 9%) !important; }
+.bg-eerie-black-2 { background-color: hsl(180, 3%, 7%) !important; }
+.bg-quick-silver { background-color: hsl(0, 0%, 65%) !important; }
+.bg-radical-red { background-color: hsl(351, 83%, 61%) !important; }
+.bg-light-gray { background-color: hsl(0, 0%, 80%) !important; }
+.bg-isabelline { background-color: hsl(36, 33%, 94%) !important; }
+.bg-gray-x-11 { background-color: hsl(0, 0%, 73%) !important; }
+.bg-platinum { background-color: hsl(0, 0%, 90%) !important; }
+.bg-gray-web { background-color: hsl(0, 0%, 50%) !important; }
+.bg-kappel { background-color: hsl(170, 75%, 41%) !important; }
+.bg-black-80 { background-color: hsla(0, 0%, 0%, 0.8) !important; }
+.bg-white-50 { background-color: hsla(0, 0%, 100%, 0.5) !important; }
+.bg-black-50 { background-color: hsla(0, 0%, 0%, 0.5) !important; }
+.bg-black-30 { background-color: hsla(0, 0%, 0%, 0.3) !important; }
+.bg-white { background-color: hsl(0, 0%, 100%) !important; }
+
+.text-selective-yellow { color: hsl(57, 87%, 63%) !important; }
+.text-selective-purple { color: hsl(278, 58%, 38%) !important; }
+.text-selective-lightyellow { color: hsl(57, 87%, 85%) !important; }
+.text-eerie-black-1 { color: hsl(0, 0%, 9%) !important; }
+.text-eerie-black-2 { color: hsl(180, 3%, 7%) !important; }
+.text-quick-silver { color: hsl(0, 0%, 65%) !important; }
+.text-radical-red { color: hsl(351, 83%, 61%) !important; }
+.text-light-gray { color: hsl(0, 0%, 80%) !important; }
+.text-isabelline { color: hsl(36, 33%, 94%) !important; }
+.text-gray-x-11 { color: hsl(0, 0%, 73%) !important; }
+.text-platinum { color: hsl(0, 0%, 90%) !important; }
+.text-gray-web { color: hsl(0, 0%, 50%) !important; }
+.text-kappel { color: hsl(170, 75%, 41%) !important; }
+.text-black-80 { color: hsla(0, 0%, 0%, 0.8) !important; }
+.text-white-50 { color: hsla(0, 0%, 100%, 0.5) !important; }
+.text-black-50 { color: hsla(0, 0%, 0%, 0.5) !important; }
+.text-black-30 { color: hsla(0, 0%, 0%, 0.3) !important; }
+.text-white { color: hsl(0, 0%, 100%) !important; }
+
+
+// Custom styles for accordion items
+
+// Accordion active button color and background
+.accordion-button:not(.collapsed) {
+  color: hsl(278, 58%, 38%) !important; // Selective purple
+  background-color: hsl(0, 0%, 100%) !important; // White
+  box-shadow: none;
+}
+
+// Accordion arrow color (custom SVG)
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='hsl(278,58%25,38%25)' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  filter: none;
+}
+
+// Accordion border color
+.accordion-item {
+  border-color: hsl(278, 58%, 38%) !important; // Selective purple
+}

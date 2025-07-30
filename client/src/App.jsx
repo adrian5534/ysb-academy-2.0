@@ -9,11 +9,19 @@ import Pricing from './components/Pricing'
 import Footer from './layout/Footer'
 import Courses from './pages/Courses'
 import About from './pages/About'
+import ScrollToTop from './components/ScrollToTop'
 // Future pages can be imported here
+import Terms from './pages/Terms'
+import Privacy from './pages/Privacy'
+import Cookie from './pages/Cookie'
+import FAQ from './pages/FAQ'
+import Contact from './pages/Contact'
+import Login from './pages/Login'
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route
           path="/"
@@ -31,6 +39,12 @@ function App() {
         <Route path="/courses" element={<Courses />} />
         <Route path="/about" element={<About />} />
         {/* Future pages */}
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/cookie" element={<Cookie />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   )

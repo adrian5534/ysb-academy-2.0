@@ -4,11 +4,12 @@ import AboutSection from '../components/About'
 
 function About() {
   return (
-    <div className="aboutpage">
+    <div className="homepage">
       <Header />
       <AboutSection />
       <Footer />
     </div>
   )
 }
+
 export default About
