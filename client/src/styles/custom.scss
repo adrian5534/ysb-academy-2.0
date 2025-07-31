@@ -59,3 +59,47 @@
 .accordion-item {
   border-color: hsl(278, 58%, 38%) !important; // Selective purple
 }
+
+// ...existing code...
+
+.text-selective-purple:hover,
+.btn.text-selective-purple:hover,
+a.text-selective-purple:hover {
+  color: hsl(57, 87%, 63%) !important; // selective-yellow on hover
+}
+
+.text-selective-yellow:hover,
+.btn.text-selective-yellow:hover,
+a.text-selective-yellow:hover {
+  color: hsl(278, 58%, 38%) !important; // selective-purple on hover
+}
+
+.btn-selective-purple {
+  background: hsl(278, 58%, 38%) !important;
+  color: #fff !important;
+  border: none;
+}
+.btn-selective-purple:hover,
+.btn-selective-purple:focus {
+  background: hsl(57, 87%, 63%) !important;
+  color: hsl(278, 58%, 38%) !important;
+  border: none;
+}
+
+.btn-outline-secondary.text-selective-purple.border-selective-purple:hover,
+.btn-outline-secondary.text-selective-purple.border-selective-purple:focus {
+  background: hsl(278, 58%, 38%) !important;   // selective-purple
+  color: hsl(57, 87%, 63%) !important;         // selective-yellow
+  border-color: hsl(278, 58%, 38%) !important;
+}
+
+.btn-outline-secondary.text-selective-purple.border-selective-purple {
+  border-color: hsl(278, 58%, 38%) !important; // selective-purple
+  color: hsl(278, 58%, 38%) !important;
+}
+.btn-outline-secondary.text-selective-purple.border-selective-purple:hover,
+.btn-outline-secondary.text-selective-purple.border-selective-purple:focus {
+  background: hsl(278, 58%, 38%) !important;
+  color: hsl(57, 87%, 63%) !important;
+  border-color: hsl(278, 58%, 38%) !important;
+}
