@@ -31,6 +31,7 @@ const routes = [
       title: 'YSB Academy - Home',
       description: 'Unlock your potential with YSB Academy. Explore our programs and start learning today.',
     },
+    protected: false, // Home page is public
   },
   {
     path: '/courses',
@@ -39,6 +40,7 @@ const routes = [
       title: 'Courses | YSB Academy',
       description: 'Browse all courses offered by YSB Academy.',
     },
+    protected: false, // Example of a protected route
   },
   {
     path: '/about',

@@ -1,6 +1,25 @@
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 function Login() {
+  const { login } = useAuth()
+  const navigate = useNavigate()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setError('')
+    const res = await login(email, password)
+    if (res.success) {
+      navigate('/') // or navigate('/dashboard')
+    } else {
+      setError(res.error || 'Login failed')
+    }
+  }
+
   return (
     <div className="d-flex align-items-center justify-content-center min-vh-100" style={{ background: "#f6f7fa" }}>
       <div className="container" style={{ maxWidth: 900 }}>
@@ -24,18 +43,36 @@ function Login() {
               <span className="fw-bold text-selective-purple border-bottom border-2 border-selective-purple pb-2 px-3" style={{ cursor: "pointer" }}>Login</span>
               <Link to="/signup" className="fw-bold text-selective-purple pb-2 px-3 text-decoration-none">Sign Up</Link>
             </div>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="email" className="form-label fw-semibold text-selective-purple">Email Address</label>
-                <input type="email" className="form-control" id="email" placeholder="your@example.com" required />
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  placeholder="your@example.com"
+                  required
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                />
               </div>
               <div className="mb-2">
                 <label htmlFor="password" className="form-label fw-semibold text-selective-purple">Password</label>
-                <input type="password" className="form-control" id="password" placeholder="********" required />
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  placeholder="********"
+                  required
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  autoComplete="current-password"
+                />
               </div>
               <div className="mb-4 text-end">
                 <Link to="/forgot-password" className="small text-selective-purple text-decoration-none">Forgot Password?</Link>
               </div>
+              {error && <div className="alert alert-danger py-2">{error}</div>}
               <button
                 type="submit"
                 className="btn w-100 mb-3 fw-semibold text-white"
@@ -45,6 +82,8 @@ function Login() {
               >
                 Login
               </button>
+              {/* Google login hidden for now */}
+              {/* 
               <div className="d-flex align-items-center my-3">
                 <hr className="flex-grow-1" />
                 <span className="mx-2 text-muted">OR</span>
@@ -54,6 +93,7 @@ function Login() {
                 <i className="bi bi-google me-2"></i>
                 Continue with Google
               </button>
+              */}
             </form>
             <div className="text-center mt-4">
               <span className="text-muted">Not a member? </span>

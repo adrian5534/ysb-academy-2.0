@@ -5,6 +5,7 @@ import ScrollToTop from './components/ScrollToTop'
 import routes from './routes/routes.jsx'
 import MetaRoute from './routes/MetaRoute'
 import { AuthProvider } from './context/AuthContext'
+import ProtectedRoute from './routes/ProtectedRoute.jsx'
 
 function App() {
   return (
@@ -12,11 +13,15 @@ function App() {
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          {routes.map(({ path, element, meta }, idx) => (
+          {routes.map(({ path, element, meta, protected: isProtected }, idx) => (
             <Route
               key={path || idx}
               path={path}
-              element={<MetaRoute element={element} meta={meta} />}
+              element={
+                isProtected
+                  ? <ProtectedRoute><MetaRoute element={element} meta={meta} /></ProtectedRoute>
+                  : <MetaRoute element={element} meta={meta} />
+              }
             />
           ))}
         </Routes>

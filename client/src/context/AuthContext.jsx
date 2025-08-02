@@ -15,10 +15,10 @@ export function AuthProvider({ children }) {
       body: JSON.stringify({ email, password }),
     })
     const data = await res.json()
-    if (res.ok && data.session) {
+    if (res.ok && data.token) {
       setUser(data.user)
-      setToken(data.session.access_token)
-      localStorage.setItem('ysb_token', data.session.access_token)
+      setToken(data.token)
+      localStorage.setItem('ysb_token', data.token)
       localStorage.setItem('ysb_user', JSON.stringify(data.user))
       return { success: true }
     }
