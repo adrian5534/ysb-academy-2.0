@@ -1,16 +1,16 @@
 require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-const { Pool } = require('pg')
+const { createClient } = require('@supabase/supabase-js')
 
 const app = express()
 app.use(cors())
 app.use(express.json())
 
-const pool = new Pool({ connectionString: process.env.DATABASE_URL })
-const JWT_SECRET = process.env.JWT_SECRET
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY
+)
 
 // Health check
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }))
@@ -19,28 +19,26 @@ app.get('/api/health', (req, res) => res.json({ status: 'ok' }))
 app.post('/api/register', async (req, res) => {
   const { email, password } = req.body
   if (!email || !password) return res.status(400).json({ error: 'Email and password required' })
-  try {
-    const hashed = await bcrypt.hash(password, 10)
-    const result = await pool.query(
-      'INSERT INTO users (email, password) VALUES ($1, $2) RETURNING id, email',
-      [email, hashed]
-    )
-    res.json({ user: result.rows[0] })
-  } catch (err) {
-    res.status(400).json({ error: 'User already exists or invalid data.' })
+  const { data, error } = await supabase.auth.admin.createUser({
+    email,
+    password,
+  })
+  if (error) {
+    console.error('Register error:', error)
+    return res.status(400).json({ error: error.message })
   }
+  res.json({ user: data.user })
 })
 
 // Login route
 app.post('/api/login', async (req, res) => {
   const { email, password } = req.body
-  const result = await pool.query('SELECT * FROM users WHERE email = $1', [email])
-  const user = result.rows[0]
-  if (!user) return res.status(401).json({ error: 'Invalid credentials' })
-  const valid = await bcrypt.compare(password, user.password)
-  if (!valid) return res.status(401).json({ error: 'Invalid credentials' })
-  const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: '7d' })
-  res.json({ token, user: { id: user.id, email: user.email } })
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password })
+  if (error) {
+    console.error('Login error:', error)
+    return res.status(401).json({ error: error.message })
+  }
+  res.json({ session: data.session, user: data.user })
 })
 
 // Logout route (stateless, just for API completeness)
