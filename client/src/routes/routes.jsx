@@ -13,6 +13,7 @@ import FAQ from '../pages/FAQ'
 import Contact from '../pages/Contact'
 import Login from '../pages/Login'
 import Signup from '../pages/Signup'
+import Dashboard from '../pages/auth/dashboard/Dashboard'
 
 const routes = [
   {
@@ -105,6 +106,15 @@ const routes = [
       title: 'Sign Up | YSB Academy',
       description: 'Create a new account at YSB Academy.',
     },
+  },
+  {
+    path: '/dashboard',
+    element: <Dashboard />,
+    meta: {
+      title: 'Dashboard | YSB Academy',
+      description: 'Your student dashboard.',
+    },
+    protected: false, // Dashboard is a protected route
   },
 ]
 
